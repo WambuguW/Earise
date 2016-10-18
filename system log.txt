@@ -1,0 +1,29 @@
+System updates and changes
+//record all the activities and date of effect
+DATE 28/8/2015
+user:john 
+affected pages :personal information
+-> updated inforsearch.php,
+effects:updating the design of the page and posting the data
+-> renamed some fields in newmember table in database.
+-> updated withdrawsearchresults() in froms.php
+-> updated membersearchresults() in froms.php
+-> updated editmember(); in registerclass.php
+-> add new function getMemberSavings($mno) in functions.php
+
+DATE 01/09/20 
+user:kamau and john 
+-> Updated the assets files
+-> updated permissions
+-> changed user menu to be dynamic
+-> added submenu on add_url.php and introduced new column in pages table
+->added some functions in (get_url.php)
+
+DATE 03/09/ 2015
+User : John
+-> introduced permision rejection method in froms
+-> introduced interest_save_setting.php
+-> updated admin menu
+-> added interest_save()//form 
+-> added interest_saving_setting() in classes
+-> added new table in the database interest_saving_setting

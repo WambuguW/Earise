@@ -1,0 +1,64 @@
+//paymentout
+            $stmt = mysql_query('select * from   paymentout where date="' . base64_encode(date('d-M-Y', $s)) . '"  AND bnkid != "' . null . '"  ') or die(mysql_error());
+            while ($Row1 = mysql_fetch_array($stmt)) {
+                echo'<td class="style">' . base64_decode($Row1['date']) . '</td><td>' . ucwords(strtolower(base64_decode($Row1['receiver']))) . '</td>
+                  <td class="style">' . getGlname(base64_decode($Row1['transname'])) . '</td>';
+
+                for ($i = 0; $i <= $noofloop; $i++) {
+                    $myjune = $i + 1;
+                    $noo = amountIsf($Row1['date'], $Row1['bnkid']);
+                    if ($myjune == $noo) {
+                        $totalm4 = calcluteAmount2($Row1['date'], $Row1['bnkid']);
+                        $ttotal2 += calcluteAmount2($Row1['date'], $Row1['bnkid']);
+                        $ty = '<td>' . getsymbol() . ' ' . number_format(calcluteAmount2($Row1['date'], $Row1['bnkid']), 2) . '</td>';
+                        echo $ty;
+                    } else {
+                        $vero = '<td>' . null . '</td>';
+                        echo $vero;
+                    }
+                }
+                
+            }
+            //banking withdraw
+            
+              
+              $st = mysql_query('select * from  banking where date="' . base64_encode(date('d-M-Y', $s)) . '"    AND bnkid != "' . null . '"   AND   mode="d2l0aGRyYXc="') or die(mysql_error());
+            while ($R = mysql_fetch_array($st)) {
+                echo'<td class="style">' . base64_decode($R['date']) . '</td><td>' . ucwords(strtolower(base64_decode($R['approvedby']))) . '</td>
+                  <td class="style">' . (base64_decode($R['transid'])) . '</td>';
+
+                for ($i = 0; $i <= $noofloop; $i++) {
+                    $myjune = $i + 1;
+                    $noo =amountIs344($R['date'], $R['bnkid']);
+                    if ($myjune == $noo) {
+                        $totalm4 = calcluteAmount456($R['date'], $R['bnkid']);
+                        $ttotal2 += calcluteAmount456($R['date'], $R['bnkid']);
+                        $ty = '<td>' . getsymbol() . ' ' . number_format(calcluteAmount456($R['date'], $R['bnkid']), 2) . '</td>';
+                        echo $ty;
+                    } else {
+                        $vero = '<td>' . null . '</td>';
+                        echo $vero;
+                    }
+                }
+            }
+            
+            //disbursement
+            $sth1 = mysql_query('select * from  loandisbursment where date="' . base64_encode(date('d-M-Y', $s)) . '"    AND bnkid != "' . null . '"  ') or die(mysql_error());
+            while ($RR = mysql_fetch_array($sth1)) {
+                echo'<td class="style">' . base64_decode($RR['date']) . '</td><td>' . getMembername($RR['mno']) . '</td>
+                  <td class="style">' . getGlname(base64_decode($RR['glid'])) . '</td>';
+
+                for ($i = 0; $i <= $noofloop; $i++) {
+                    $myjune = $i + 1;
+                    $noo =amountIs10($RR['date'], $RR['bnkid']);
+                    if ($myjune == $noo) {
+                        $totalm4 = calcluteAmount10($RR['date'], $RR['bnkid']);
+                        $ttotal2 += calcluteAmount10($RR['date'], $RR['bnkid']);
+                        $ty = '<td>' . getsymbol() . ' ' . number_format(calcluteAmount10($RR['date'], $RR['bnkid']), 2) . '</td>';
+                        echo $ty;
+                    } else {
+                        $vero = '<td>' . null . '</td>';
+                        echo $vero;
+                    }
+                }
+            }
